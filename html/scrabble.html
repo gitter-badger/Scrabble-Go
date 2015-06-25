@@ -82,7 +82,8 @@
         </script>
         <br>
         <div id="buttons">
-        <input type="button" name="Verify" value="Verify" onclick="window.location='/verify';">
+        <!-- <input type="button" name="Verify" value="Verify" onclick="window.location='/verify';"> -->
+            <input type="button" name="Restore" value="fetch" onclick="fetch_id()">
             <input type="button" name="Restore" value="Restore" onclick="restorify()">
             <input type="button" name="Skip turn!" value="Skip turn" onclick="skip()">
             <input type="button" name="Finish" value="Finish" onclick="finishgamebutton()">
@@ -91,5 +92,13 @@
     </div>
     <!-- #others end  -->
     <!-- <script>restore();</script> -->
+    <script type="text/javascript">
+    function fetch_id () {
+        player1 = parseInt(document.getElementById("score_player1").innerHTML);
+        player2 = parseInt(document.getElementById("score_player2").innerHTML);
+        character = document.getElementById("c")
+        window.location="/verify/"+player1+"/"+player2+"/"+character
+        } 
+        </script>
 </body>
 </html>

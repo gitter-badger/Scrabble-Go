@@ -28,7 +28,7 @@ func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/", account.Ses.Create)
 	r.HandleFunc("/landing_page", account.Ses.Landing_page)
-	r.HandleFunc("/verify", game.Veri.Verify)
+	r.HandleFunc("/verify/{player1:[0-9]+}/{player2:[0-9]+}/{character:[a-zA-Z]+}", game.Veri.Verify)
 	fs := justFilesFilesystem{http.Dir("./assets/")}
 	http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(fs)))
 	http.Handle("/", r)
