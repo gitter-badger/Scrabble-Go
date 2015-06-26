@@ -3,7 +3,7 @@ package game
 import (
 	"fmt"
 	"github.com/gorilla/mux"
-	// "honnef.co/go/js/dom"
+	"honnef.co/go/js/dom"
 	"net/http"
 )
 
@@ -27,6 +27,10 @@ func (ver verifygame) Verify(rw http.ResponseWriter, req *http.Request) {
 	for i = 1; i < 16; i++ {
 		// actual_word := ""
 		for j = 1; j < 16; j++ {
+			document := dom.GetWindow().Document()
+			login := document.GetElementByID("login").(*dom.HTMLDivElement)
+			value := login.GetAttribute("value")
+			fmt.Println(value)
 		}
 	}
 	http.Redirect(rw, req, "localhost:9999/landing_page", http.StatusFound)
